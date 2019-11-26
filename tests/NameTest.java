@@ -14,10 +14,14 @@ public class NameTest {
     }
 
     @Test
-    void testHello() {
+    void shouldReturnHello() {
         String expected = "Hello";
         sut.setValue(expected);
         var actual = sut.getValue();
         assertEquals(expected, actual);
     }
+
+
+
+
 }
