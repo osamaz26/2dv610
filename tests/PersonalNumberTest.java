@@ -28,7 +28,7 @@ public class PersonalNumberTest {
     @Test
     void shouldThrowInvalidDateExceptionWhenThereIsWhiteSpaceInTheDate() {
         String testData = "87  12-4612";
-        assertThrows(PersonalNumberInvalidDateException.class, () -> sut.setValue(testData));
+        assertThrows(PersonalNumberInvalidFormatException.class, () -> sut.setValue(testData));
     }
 
     @Test
@@ -52,7 +52,7 @@ public class PersonalNumberTest {
 
     @Test
     void shouldReturnTheExpectedValue() {
-        String expected = "871412-4612";
+        String expected = "870412-4612";
         sut.setValue(expected);
         var actual = sut.getValue();
         assertEquals(expected, actual);
