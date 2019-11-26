@@ -1,12 +1,54 @@
-public class Name {
+import exceptions.NameEmptyException;
+import exceptions.NameHasDigitsException;
+import exceptions.NameHasInvalidSizeException;
 
+public class Name {
+    private String value;
 
     public void setValue(String value) {
-
+        if (isEmpty(value)) {
+            throw new NameEmptyException();
+        }
+        if (isLessThanMinimum(value)) {
+            throw new NameHasInvalidSizeException();
+        }
+        if (isAboveMaximum(value)) {
+            throw new NameHasInvalidSizeException();
+        }
+        if (hasDigits(value)) {
+            throw new NameHasDigitsException();
+        }
+        this.value = value;
     }
 
     public String getValue() {
-        return "";
+        String result = value;
+        return result;
+    }
+
+    private boolean isEmpty(String value) {
+        var result = value.isEmpty();
+        return result;
+    }
+
+    private boolean isLessThanMinimum(String value) {
+        var result = value.length() < 3;
+        return result;
+    }
+
+    private boolean isAboveMaximum(String value) {
+        var result = value.length() > 25;
+        return result;
+    }
+
+    private boolean hasDigits(String value) {
+        for (char ch : value.toCharArray()) {
+            var result = Character.isDigit(ch);
+            if (result) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
