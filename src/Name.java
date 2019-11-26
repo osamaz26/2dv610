@@ -22,29 +22,24 @@ public class Name {
     }
 
     public String getValue() {
-        String result = value;
-        return result;
+        return value;
     }
 
     private boolean isEmpty(String value) {
-        var result = value.isEmpty();
-        return result;
+        return value.isEmpty();
     }
 
     private boolean isLessThanMinimum(String value) {
-        var result = value.length() < 3;
-        return result;
+        return value.length() < 3;
     }
 
     private boolean isAboveMaximum(String value) {
-        var result = value.length() > 25;
-        return result;
+        return value.length() > 25;
     }
 
     private boolean hasDigits(String value) {
         for (char ch : value.toCharArray()) {
-            var result = Character.isDigit(ch);
-            if (result) {
+            if (Character.isDigit(ch)) {
                 return true;
             }
         }
