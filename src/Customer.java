@@ -1,35 +1,54 @@
+import exceptions.CustomerUndefinedNameException;
+import exceptions.CustomerUndefinedPersonalNumberException;
 
 public class Customer {
 
+    private int id;
+    private Name name;
+    private PersonalNumber personalNumber;
 
     public Name getName() {
-        return null;
+        return name;
     }
 
     public void setName(Name name) {
+        if (name == null) {
+            throw new CustomerUndefinedNameException();
+        } else {
+            this.name = name;
+        }
     }
 
     public PersonalNumber getPersonalNumber() {
-        return null;
+        return personalNumber;
     }
 
     public void setPersonalNumber(PersonalNumber personalNumber) {
+        if (personalNumber == null) {
+            throw new CustomerUndefinedPersonalNumberException();
+        } else {
+            this.personalNumber = personalNumber;
+        }
     }
 
     public int getId() {
-        return 0;
+        return id;
     }
 
     public void setId(int id) {
+        this.id = id;
     }
 
 
     public String getNameAsString() {
-        return null;
+        String name = this.name.getValue();
+        return name;
     }
 
 
     public String getPersonalNumberAsString() {
-        return null;
+        String personalNumber = this.personalNumber.getValue();
+        return personalNumber;
     }
 }
+
