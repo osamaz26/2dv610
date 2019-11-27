@@ -46,13 +46,8 @@ public class PersonalNumber {
         int year = Integer.parseInt(value.substring(0, 2));
         int month = Integer.parseInt(value.substring(2, 4));
         int day = Integer.parseInt(value.substring(4, 6));
-        if ((year >= 0) && (month > 0 && month < 13) && checkDay(year, month, day)) {
-            return true;
-        } else{
-            return false;
-        }
+        return (year >= 0) && (month > 0 && month < 13) && checkDay(year, month, day);
     }
-
 
     /**
      * Check day.
@@ -73,11 +68,7 @@ public class PersonalNumber {
             return false;
         }
         // Check leap year
-        if ((month != 2) || ((year % 400 != 0) && ((year % 4 != 0) || (year % 100 == 0))) || (day <= 28)){
-            return true;
-        } else {
-            return false;
-        }
+        return (month != 2) || ((year % 400 != 0) && ((year % 4 != 0) || (year % 100 == 0))) || (day <= 28);
     }
 
     /**
@@ -97,10 +88,6 @@ public class PersonalNumber {
             // Sum of tens and ones of x
             sum += (x % 10) + (x / 10);
         }
-        if((value.charAt(10) - 0x30) == 10 - (sum % 10)){
-            return true;
-        } else {
-            return false;
-        }
+        return (value.charAt(10) - 0x30) == 10 - (sum % 10);
     }
 }
