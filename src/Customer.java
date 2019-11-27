@@ -1,10 +1,8 @@
+
 public class Customer {
 
-    public Name getName() {
-        return null;
-    }
 
-    public String getNameAsString() {
+    public Name getName() {
         return null;
     }
 
@@ -15,14 +13,7 @@ public class Customer {
         return null;
     }
 
-    public String getPersonalNumberAsString() {
-        return null;
-    }
-
-
-
     public void setPersonalNumber(PersonalNumber personalNumber) {
-
     }
 
     public int getId() {
@@ -30,5 +21,15 @@ public class Customer {
     }
 
     public void setId(int id) {
+    }
+
+
+    public String getNameAsString() {
+        return null;
+    }
+
+
+    public String getPersonalNumberAsString() {
+        return null;
     }
 }

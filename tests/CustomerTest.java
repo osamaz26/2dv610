@@ -57,20 +57,34 @@ class CustomerTest {
     }
 
     @Test
-    void shouldInteractWithThePersonalNumberObjectAndReturnThePersonalNumberAsString() {
+    void shouldReturnThePersonalNumberAsString() {
         String expected = "580309-1452";
         when(mockPersonalNumber.getValue()).thenReturn(expected);
+        sut.setPersonalNumber(mockPersonalNumber);
         String actual = sut.getPersonalNumberAsString();
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldInteractWithThePersonalNumberObject() {
+        sut.setPersonalNumber(mockPersonalNumber);
+        sut.getPersonalNumberAsString();
         verify(mockPersonalNumber, times(1)).getValue();
     }
 
     @Test
-    void shouldInteractWithTheNameObjectAndReturnTheNameAsString() {
+    void shouldReturnTheNameAsString() {
         String expected = "Jacob";
         when(mockName.getValue()).thenReturn(expected);
+        sut.setName(mockName);
         String actual = sut.getNameAsString();
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldInteractWithTheNameObject() {
+        sut.setName(mockName);
+        sut.getNameAsString();
         verify(mockName, times(1)).getValue();
     }
 }
