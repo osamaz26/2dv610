@@ -9,31 +9,26 @@ public class CustomerRegistry {
     private int index = 1;
 
     public void add(Customer customer) {
-        customer.setId(index);
-        index++;
-        int temp = customer.getId();
-        list.put(temp, customer);
+        customer.setId(index++);
+        list.put(customer.getId(), customer);
     }
 
     public void delete(int id) {
         if (list.get(id) == null) {
             throw new CustomerNotFoundException();
-        } else {
-            list.remove(id);
         }
+        list.remove(id);
     }
 
     public List<Customer> getList() {
-        ArrayList tempList = new ArrayList<>(list.values());
-        return tempList;
+        return new ArrayList<>(list.values());
     }
 
     public Customer retrieve(int id) {
         var customer = list.get(id);
         if (customer == null) {
             throw new CustomerNotFoundException();
-        } else {
-            return customer;
         }
+        return customer;
     }
 }
