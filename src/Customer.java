@@ -14,9 +14,9 @@ public class Customer {
     public void setName(Name name) {
         if (name == null) {
             throw new CustomerUndefinedNameException();
-        } else {
-            this.name = name;
         }
+
+        this.name = name;
     }
 
     public PersonalNumber getPersonalNumber() {
@@ -26,9 +26,8 @@ public class Customer {
     public void setPersonalNumber(PersonalNumber personalNumber) {
         if (personalNumber == null) {
             throw new CustomerUndefinedPersonalNumberException();
-        } else {
-            this.personalNumber = personalNumber;
         }
+        this.personalNumber = personalNumber;
     }
 
     public int getId() {
@@ -41,14 +40,12 @@ public class Customer {
 
 
     public String getNameAsString() {
-        String name = this.name.getValue();
-        return name;
+        return this.name.getValue();
     }
 
 
     public String getPersonalNumberAsString() {
-        String personalNumber = this.personalNumber.getValue();
-        return personalNumber;
+        return this.personalNumber.getValue();
     }
 }
 
