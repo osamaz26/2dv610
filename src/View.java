@@ -9,6 +9,32 @@ public class View {
         this.console = console;
     }
 
+    public void run() {
+        console.writeLine("============================");
+        console.writeLine("Welcome to Customer registry");
+        var choice = readMenu();
+        while (choice != 0) {
+            switch (choice) {
+                case 1:
+                    addCustomer();
+                    break;
+                case 2:
+                    deleteCustomer();
+                    break;
+                case 3:
+                    listCustomers();
+                    break;
+                case 4:
+                    retrieveCustomer();
+                    break;
+                default:
+                    console.writeLine("invalid choice");
+                    break;
+            }
+            choice = readMenu();
+        }
+    }
+
     public int readMenu() {
         console.writeLine("============================\n" +
                 "1: Add customer\n" +
@@ -18,6 +44,24 @@ public class View {
                 "0: exit\n" +
                 "============================");
         return readIntWithMessage("Your choice: ");
+    }
+
+    public void addCustomer() {
+        console.writeLine("Add a new customer");
+        var name = readName();
+        if (name == null) {
+            console.writeLine("Invalid name, try again");
+            return;
+        }
+        var personalNumber = readPersonalNumber();
+        if (personalNumber == null) {
+            console.writeLine("Invalid name, try again");
+            return;
+        }
+        var customer = new Customer();
+        customer.setName(name);
+        customer.setPersonalNumber(personalNumber);
+        registry.add(customer);
     }
 
     public Name readName() {
