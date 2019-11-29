@@ -10,22 +10,20 @@ public class View {
     }
 
     public int readMenu() {
-        var str = "============================\n" +
+        console.writeLine("============================\n" +
                 "1: Add customer\n" +
                 "2: delete customer\n" +
                 "3: list customer\n" +
                 "4: retrieve customer\n" +
                 "0: exit\n" +
-                "============================";
-        console.writeLine(str);
+                "============================");
         return readIntWithMessage("Your choice: ");
     }
 
     public Name readName() {
         var name = new Name();
         try {
-            var value = readLineWithMessage("Name: ");
-            name.setValue(value);
+            name.setValue(readLineWithMessage("Name: "));
         } catch (Exception exception) {
             console.writeLine("Exception: " + exception.toString());
             return null;
@@ -47,7 +45,6 @@ public class View {
     public void deleteCustomer() {
         console.writeLine("Delete customer");
         var id = readIntWithMessage("Customer Id: ");
-
         try {
             registry.delete(id);
         } catch (Exception exception) {
